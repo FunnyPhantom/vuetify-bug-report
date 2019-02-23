@@ -1,7 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <v-app>
+      <v-content>
+        <v-container>
+          <v-layout>
+            <v-flex>
+              <v-tabs>
+                <v-tab v-for="i in 24">
+                  link {{i}}
+                </v-tab>
+              </v-tabs>
+            </v-flex>
+          </v-layout>
+          <v-layout>
+            <v-btn @click="changeDir()">
+              change dir
+            </v-btn>
+            <div>
+              rtl: {{ $vuetify.rtl }}
+            </div>
+          </v-layout>
+        </v-container>
+      </v-content>
+    </v-app>
   </div>
 </template>
 
@@ -12,6 +33,11 @@ export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  methods: {
+    changeDir() {
+      this.$vuetify.rtl = !this.$vuetify.rtl
+    }
   }
 }
 </script>
